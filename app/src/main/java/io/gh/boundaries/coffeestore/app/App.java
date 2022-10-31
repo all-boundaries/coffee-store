@@ -3,12 +3,11 @@
  */
 package io.gh.boundaries.coffeestore.app;
 
-import io.gh.boundaries.coffeestore.list.LinkedList;
-
+import static io.gh.boundaries.coffeestore.app.MessageUtils.getMessage;
 import static io.gh.boundaries.coffeestore.utilities.StringUtils.join;
 import static io.gh.boundaries.coffeestore.utilities.StringUtils.split;
-import static io.gh.boundaries.coffeestore.app.MessageUtils.getMessage;
 
+import io.gh.boundaries.coffeestore.list.LinkedList;
 import org.apache.commons.text.WordUtils;
 
 public class App {

@@ -1,0 +1,7 @@
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            library('spotless', 'com.diffplug.spotless', 'spotless-plugin-gradle').version('6.11.0')
+        }
+    }
+}
