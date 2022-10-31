@@ -1,0 +1,8 @@
+{
+  "packages": [
+    "jdk"
+  ],
+  "shell": {
+    "init_hook": null
+  }
+}
