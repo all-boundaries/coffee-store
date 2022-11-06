@@ -8,9 +8,8 @@ repositories {
 }
 
 dependencies {
-    constraints {
-        implementation 'org.apache.commons:commons-text:1.9'
-    }
+    testImplementation('org.assertj:assertj-core:3.23.1')
+    testImplementation('net.datafaker:datafaker:1.6.0')
 }
 
 testing {
