@@ -9,11 +9,6 @@ dependencies {
     implementation project(':utilities')
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = 'io.gh.boundaries.coffeestore.app.App'
-}
-
 openApiGenerate {
     generatorName = 'spring'
     inputSpec = "$rootDir/app/src/main/resources/openapi.yml".toString()

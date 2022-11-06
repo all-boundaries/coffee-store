@@ -1,6 +1,11 @@
 
 rootProject.name = 'boundaries'
-include('app', 'list', 'utilities')
+
+include(
+        'app',
+        'list',
+        'utilities'
+)
 
 dependencyResolutionManagement {
     versionCatalogs {
