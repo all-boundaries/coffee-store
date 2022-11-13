@@ -56,7 +56,7 @@ components:
               format: date
               description:  When the roasting happened
               example: 2022-11-01
-            roster:
+            roaster:
               type: string
               format: uri
               description: Link to roster's information
