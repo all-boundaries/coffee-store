@@ -1,5 +1,5 @@
 
-rootProject.name = 'boundaries'
+rootProject.name = 'coffee-store'
 
 include(
         'app',
