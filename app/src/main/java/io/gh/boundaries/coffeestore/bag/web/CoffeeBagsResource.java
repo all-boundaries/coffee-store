@@ -1,13 +1,12 @@
 package io.gh.boundaries.coffeestore.bag.web;
 
+import static io.gh.boundaries.coffeestore.bag.web.RoastingProfileMapping.roastingProfileResponseFrom;
+
 import io.gh.boundaries.coffeestore.bag.domain.CoffeeBags;
 import io.gh.boundaries.coffeestore.web.*;
 import java.net.URI;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-
-import static io.gh.boundaries.coffeestore.bag.web.RoastingProfileMapping.roastingProfileResponseFrom;
 
 @RestController
 public class CoffeeBagsResource implements BagsApi {
@@ -26,7 +25,8 @@ public class CoffeeBagsResource implements BagsApi {
                     response.description(coffeeBag.description());
                     response.roasting(new CoffeeBagRoasting() {
                         {
-                            profile(roastingProfileResponseFrom(coffeeBag.roasting().profile()));
+                            profile(roastingProfileResponseFrom(
+                                    coffeeBag.roasting().profile()));
                             date(coffeeBag.roasting().date());
                             roaster(URI.create(coffeeBag.roasting().roasterUrl()));
                         }

@@ -2,7 +2,6 @@ package io.gh.boundaries.coffeestore.bag.web;
 
 import io.gh.boundaries.coffeestore.bag.domain.RoastingProfile;
 import io.gh.boundaries.coffeestore.web.CoffeeBagRoasting;
-
 import java.util.Map;
 
 public class RoastingProfileMapping {
