@@ -1,0 +1,19 @@
+version: '3.7'
+
+volumes:
+  postgres:
+
+services:
+  postgres:
+    container_name: coffeebag_postgres
+    image: "postgres:15"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB:  coffeebags
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "15432:5432"
+    restart: unless-stopped

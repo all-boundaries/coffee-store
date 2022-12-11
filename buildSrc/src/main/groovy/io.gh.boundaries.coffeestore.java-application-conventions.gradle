@@ -2,6 +2,7 @@
 plugins {
     id 'io.gh.boundaries.coffeestore.java-common-conventions'
     id 'org.springframework.boot'
+    id 'io.freefair.lombok'
 }
 
 dependencies {
@@ -11,7 +12,19 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-validation')
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
 
-    runtimeOnly('org.hsqldb:hsqldb:2.7.1')
+    implementation('org.postgresql:postgresql:42.5.1')
+    implementation('org.flywaydb:flyway-core:9.8.3')
+
+    testImplementation('org.testcontainers:postgresql:1.17.6')
+    testImplementation('org.testcontainers:junit-jupiter:1.17.6')
 
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+test {
+    systemProperty 'spring.profiles.active', 'test'
+    environment = [
+            'TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE': '/var/run/docker.sock',
+            'DOCKER_HOST': "unix://${System.getenv('HOME')}/.colima/docker.sock"
+    ]
 }

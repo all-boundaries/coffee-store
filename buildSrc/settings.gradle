@@ -4,6 +4,7 @@ dependencyResolutionManagement {
             version('spring-boot', '2.7.5')
 
             library('spring-boot', 'org.springframework.boot', 'spring-boot-gradle-plugin').versionRef('spring-boot')
+            library('lombok', 'io.freefair.gradle', 'lombok-plugin').version('6.6')
             library('spotless', 'com.diffplug.spotless', 'spotless-plugin-gradle').version('6.11.0')
         }
     }

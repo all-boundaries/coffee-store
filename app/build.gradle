@@ -36,3 +36,9 @@ sourceSets {
         }
     }
 }
+
+tasks.named("bootRun") {
+    systemProperty 'spring.datasource.url', 'jdbc:postgresql://localhost:15432/coffeebags'
+    systemProperty 'spring.datasource.username', 'user'
+    systemProperty 'spring.datasource.password', 'password'
+}

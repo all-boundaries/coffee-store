@@ -1,0 +1,5 @@
+  spring:
+    datasource:
+      url: jdbc:tc:postgresql:15:///coffeebags
+      username: user
+      password: password
