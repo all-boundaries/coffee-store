@@ -1,10 +1,8 @@
 package io.gh.boundaries.coffeestore.bag.domain;
 
 import io.gh.boundaries.coffeestore.bag.persistence.CoffeeBagsRepository;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
-import java.util.stream.StreamSupport;
+import org.springframework.stereotype.Component;
 
 @Component
 public class CoffeeBags {

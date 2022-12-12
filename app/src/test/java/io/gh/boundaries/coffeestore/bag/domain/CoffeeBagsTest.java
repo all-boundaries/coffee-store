@@ -1,19 +1,18 @@
 package io.gh.boundaries.coffeestore.bag.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.BDDMockito.given;
+
 import io.gh.boundaries.coffeestore.bag.persistence.CoffeeBagEntity;
 import io.gh.boundaries.coffeestore.bag.persistence.CoffeeBagsRepository;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.BDDMockito.given;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class CoffeeBagsTest {
@@ -37,10 +36,17 @@ class CoffeeBagsTest {
 
         given(repository.findAll()).willReturn(List.of(coffeeBagEntity));
 
-        assertThat(coffeeBags.all()).containsOnly(new CoffeeBag(
+        assertThat(coffeeBags.all())
+                .containsOnly(new CoffeeBag(
                         coffeeBagEntity.getName(),
                         coffeeBagEntity.getDescription(),
-                        new Roasting(coffeeBagEntity.getRoastingProfile(), coffeeBagEntity.getRoastingDate(), coffeeBagEntity.getRoastingVendor()),
-                        new Weight(coffeeBagEntity.getWeightCode(), coffeeBagEntity.getWeightText(), coffeeBagEntity.getWeightValue())));
+                        new Roasting(
+                                coffeeBagEntity.getRoastingProfile(),
+                                coffeeBagEntity.getRoastingDate(),
+                                coffeeBagEntity.getRoastingVendor()),
+                        new Weight(
+                                coffeeBagEntity.getWeightCode(),
+                                coffeeBagEntity.getWeightText(),
+                                coffeeBagEntity.getWeightValue())));
     }
 }
