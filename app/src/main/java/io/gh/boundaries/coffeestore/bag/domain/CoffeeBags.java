@@ -15,7 +15,7 @@ public class CoffeeBags {
     }
 
     public List<CoffeeBag> all() {
-        return StreamSupport.stream(coffeeBagsRepository.findAll().spliterator(), false)
+        return coffeeBagsRepository.findAll().stream()
                 .map(entity -> new CoffeeBag(
                         entity.getName(),
                         entity.getDescription(),
