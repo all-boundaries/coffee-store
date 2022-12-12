@@ -9,11 +9,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
 
 @Entity(name = "coffee_bag")
 @AllArgsConstructor
+@Getter
 @ToString
 public class CoffeeBagEntity {
     @Id
