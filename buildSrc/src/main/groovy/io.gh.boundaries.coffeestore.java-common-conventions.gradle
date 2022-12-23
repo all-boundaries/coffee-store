@@ -24,5 +24,7 @@ spotless {
     java {
         palantirJavaFormat()
         formatAnnotations()
+
+        targetExclude '**/generated/**'
     }
 }
