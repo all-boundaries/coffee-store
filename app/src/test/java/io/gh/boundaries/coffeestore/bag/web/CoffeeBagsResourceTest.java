@@ -1,16 +1,8 @@
 package io.gh.boundaries.coffeestore.bag.web;
 
-import static io.gh.boundaries.coffeestore.bag.web.RoastingProfileMapping.roastingProfileResponseFrom;
-import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 import io.gh.boundaries.coffeestore.bag.domain.*;
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 import net.datafaker.Faker;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -18,6 +10,16 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import static io.gh.boundaries.coffeestore.bag.web.RoastingProfileMapping.roastingProfileResponseFrom;
+import static org.hamcrest.Matchers.hasSize;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(CoffeeBagsResource.class)
 class CoffeeBagsResourceTest {
@@ -65,6 +67,8 @@ class CoffeeBagsResourceTest {
 
     @Test
     void returnsEmptyWhenNoCoffeeBagsExists() throws Exception {
+        when(coffeeBags.all()).thenReturn(List.of());
+
         mockMvc.perform(get("/bags").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(header().string(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE))
