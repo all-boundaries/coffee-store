@@ -9,6 +9,12 @@ on:
 permissions:
   contents: read
 
+env:
+  version: ${{ github.sha }}
+  application_name: "coffee-store"
+  PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
+  PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,3 +30,10 @@ jobs:
 
       - name: Test and build
         run: ./gradlew build
+
+      - name: Publish provider contract on passing test run
+        if: success()
+        uses: pactflow/actions/publish-provider-contract@v1.0.1
+        env:
+          oas_file: app/src/main/resources/openapi.yml
+          results_file: app/build/test-results/test/TEST-io.gh.boundaries.coffeestore.bag.web.CoffeeBagsResourceTest.xml
